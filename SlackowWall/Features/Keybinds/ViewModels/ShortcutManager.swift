@@ -40,6 +40,10 @@ class ShortcutManager: ObservableObject, Manager {
     }
 
     func handleGlobalKey(_ key: NSEvent) {
+        // With physical keys on, RebindManager forwards the pressed key itself.
+        if Settings[\.keybinds].shortcutsUsePhysicalKeys && RebindManager.isRebindOutput(key) {
+            return
+        }
         var type = key.type
         guard type != .keyDown || !key.isARepeat else { return }
         if type == .flagsChanged,
@@ -70,6 +74,9 @@ class ShortcutManager: ObservableObject, Manager {
                 NinjabrainManager.changeVisibility()
             } else if settings.resizeBackgroundToggleGKey.matches(event: key) {
                 toggleResizeBackground()
+            } else if settings.rebindsToggleGKey.matches(event: key) {
+                Settings[\.keybinds].rebindsEnabled.toggle()
+                SoundManager.shared.playSound(sound: "click", ext: ".mp3")
             }
         }
     }

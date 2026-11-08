@@ -20,6 +20,7 @@ extension Preferences {
         var ninjabrainBotHideGKey: Keybinding = .none
         var resizeBackgroundToggleGKey: Keybinding = .none
         var tallNoSensGKey: Keybinding = .none
+        var rebindsToggleGKey: Keybinding = .none
 
         var resetAllKey: Keybinding = .init(.t)
         var resetOthersKey: Keybinding = .init(.f)
@@ -32,6 +33,12 @@ extension Preferences {
         var blockingOption: Bool = false
         var blockingCommand: Bool = true
         var blockingF3: Bool = false
+
+        var rebindsEnabled: Bool = false
+        var rebinds: [KeyRebind] = []
+        var showRebindKeyboard: Bool = true
+        /// SlackowWall shortcuts react to the key pressed instead of a rebind's output.
+        var shortcutsUsePhysicalKeys: Bool = false
 
         init() {}
     }

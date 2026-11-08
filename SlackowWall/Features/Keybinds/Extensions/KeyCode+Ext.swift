@@ -62,6 +62,8 @@ extension KeyCode {
     static let f18: KeyCode = 0x4F
     static let f19: KeyCode = 0x50
     static let f20: KeyCode = 0x5A
+    /// ISO-only key: top-left on Mac ISO keyboards (§ on most layouts).
+    static let section: KeyCode = 0x0A
 
     // US-ANSI Keyboard Positions
     // eg. These key codes are for the physical key (in any keyboard layout)
@@ -184,6 +186,7 @@ extension KeyCode {
         0x4F: "F18",
         0x50: "F19",
         0x5A: "F20",
+        0x0A: "§",
         0x00: "A",
         0x0B: "B",
         0x08: "C",

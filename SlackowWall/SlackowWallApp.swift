@@ -183,6 +183,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         ]) { event in
             ShortcutManager.shared.handleGlobalKey(event)
         }
+        RebindManager.shared.start()
         OBSManager.shared.writeScript()
         MouseSensitivityManager.shared.setSensitivityFactor(factor: Settings[\.utility].sensitivityScale)
         if Settings[\.utility].ninjabrainBotAutoLaunch {
